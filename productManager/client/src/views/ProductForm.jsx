@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import ListAllProducts from '../components/ListAllProducts'
 
 const ProductForm = () => {
   const [title, setTitle] = useState('')
@@ -25,9 +26,9 @@ const ProductForm = () => {
   }
 
   return (
-    <div className='w-400 mt-20 mx-auto'>
+    <>
       <h3 className='text-center'>Product Manager</h3>
-      <form onSubmit={formHandler}>
+      <form onSubmit={formHandler} className='w-400 mt-20 mx-auto'>
         <div className="form-group">
           <label htmlFor="title">Title:</label>
           <input onChange={(e) => setTitle(e.target.value)} value={title} type="text" className="form-control" id="title" />
@@ -42,7 +43,9 @@ const ProductForm = () => {
         </div>
         <input className="btn btn-primary" type="submit" value="Submit"></input>
       </form>
-    </div>
+      <hr className='mt-20 mb-20'/>
+      <ListAllProducts />
+    </>
   )
 }
 
