@@ -43,7 +43,7 @@ const ListAllProducts = () => {
                                     <td className='d-flex justify-content-around'>
                                         <Link to={`/${product_id}`} className="btn btn-sm btn-primary">VIEW</Link>
                                         <Link to={`/edit/${product_id}`} className="btn btn-sm btn-secondary">EDIT</Link>
-                                        <button onClick={(e)=>deleteItem(product_id)} className='btn btn-sm btn-danger'>DELETE</button>
+                                        <button onClick={()=>deleteItem(product_id)} className='btn btn-sm btn-danger'>DELETE</button>
                                     </td>
                                 </tr>
                             )

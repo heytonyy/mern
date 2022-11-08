@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import ListAllProducts from '../components/ListAllProducts'
 
 const ProductForm = () => {
   const [title, setTitle] = useState('')
   const [price, setPrice] = useState(0)
   const [description, setDescription] = useState('')
-
 
   const formHandler = e => {
     e.preventDefault();
@@ -43,8 +41,6 @@ const ProductForm = () => {
         </div>
         <input className="btn btn-primary" type="submit" value="Submit"></input>
       </form>
-      <hr className='mt-20 mb-20'/>
-      <ListAllProducts />
     </>
   )
 }
