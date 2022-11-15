@@ -5,7 +5,6 @@ console.log(rehash(example1))
 
 function rehash(str){
     const hash = {}
-    let result = ''
     for (let i=0; i<str.length; i++){
         let char = str[i]
         if (isNaN(char)) {
@@ -13,22 +12,21 @@ function rehash(str){
         } else {
             let num = ''
             let pointer = i
+            const letter = str[i-1]
             while (true) {
-                if (!(isNaN(str[pointer]))){
-                    num+=str[pointer]
+                let current = str[pointer]
+                if (!(isNaN(current))){
+                    num += current
                     pointer++
                 } else {
-                    if (str[i-1] in hash) {
-                        hash[str[i-1]] += parseInt(num)
-                    } else {
-                        hash[str[i-1]] = parseInt(num)
-                    }
+                    (letter in hash) ? hash[letter] += parseInt(num) : hash[letter] = parseInt(num);
                     i = pointer
                     break
                 }
             }
         }
     }
+    let result = ''
     const sortedKeys = Object.keys(hash).sort()
     for (const key of sortedKeys){
         result+=`${key}${hash[key]}`
